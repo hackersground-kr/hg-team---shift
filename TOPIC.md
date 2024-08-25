@@ -22,6 +22,7 @@ https://github.com/hackersground-kr/hg-team---shift/blob/main/images/Frame%201.p
 
 ## 제품 소개 슬라이드
 
+https://github.com/hackersground-kr/hg-team---shift/blob/main/decks/%E1%84%89%E1%85%B5%E1%84%91%E1%85%B3%E1%84%90%E1%85%B3-%E1%84%86%E1%85%A9%E1%84%8B%E1%85%B5%E1%84%89%E1%85%A9.pdf
 
 ## 제품 소개 동영상
 
