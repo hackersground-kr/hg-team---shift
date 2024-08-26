@@ -66,7 +66,7 @@ Java 웹 서버 스택 : Java SE (Embedded Web Server)
 
 **먼저 배포를 위한 자격 증명을 설정**한다.
 ![image](https://github.com/user-attachments/assets/9115206b-987d-46aa-bc48-c0f099f8b7a2)
-위에 빨간박스로 네모친 곳을 눌러서 bash(맥이라서 bash고, windows유저는 powerShell로하면된다.) 로 들어간다. 
+위에 빨간박스로 네모친 곳을 눌러서 bash(맥,윈도우 둘다 bash로하면된다.) 로 들어간다. 
 <img src="https://github.com/user-attachments/assets/fe8e8062-ee3b-463d-a79c-fcc336b23db8" alt="description" width="300"/>
 만약 위 화면이 뜬다면 (Hackers Ground)를 선택하고, ‘스토리지 계정이 필요하지 않음’을 선택. ‘기존 프라이빗 가상 네트워크 사용’ 이거는 체크할 필요없다.
 ```
@@ -77,56 +77,15 @@ az webapp deployment user set --user-name (username) --password (password)
 이제부터 깃허브에 백엔드 코드를 등록하고 git actions을 활용하여 paas 서버를 구축해볼 것이다.
 먼저, 코드를 올릴 깃허브 레포지토리를 파주겠다.
 
-![image](https://github.com/user-attachments/assets/68d83fde-1c2b-473d-b3f0-831f4184dc24)
-레포지토리를 하나 생성한다.
+서버를 배포할 코드가 올라간 레포지토리가 필요하다.
+아래 링크를 클릭한다.
+https://github.com/heunseoRyu/Moiso_test
 
-(Add a README file의 체크는 하지 않는다.)
-
-그렇다면, 올릴 코드가 필요하다.
-아래 링크를 클릭하면 백엔드 코드 압축 파일이 있다. 다운받는다.
-https://drive.google.com/file/d/14xv_sbteeGJNQH65f8lIpEANZdpCeQqc/view?usp=sharing
-
-터미널로 방금 다운받은 나의 백엔드 코드파일에 접근할 것이다.
-
-일단, 다운로드 받은 파일의 압축을 푼다.
-
-터미널(윈도우는 cmd)을 연다.
-
-![image](https://github.com/user-attachments/assets/94b69ff9-1613-4f17-b908-bbd7d1b698ed)
-```
-ls // 현재위치의 폴더.파일 리스트 보기
-cd Downloads // Downloads(다운로드) 폴더위치로 이동한다.
-```
-![image](https://github.com/user-attachments/assets/dffdccc5-c5bf-4575-87f3-0a9ad76e6903)
-
-여기서
-```
-cd moiso // moiso 백엔드 코드 폴더로 현재 위치 변경
-```
-![image](https://github.com/user-attachments/assets/594a86d0-a54c-4cf1-a5d8-42a7deeed6f2)
-화면처럼 현재 위치가 정해졌다면.
-```
-git init
-git remote -v // 현재 로컬 레포가 연결된 원격 레포 확인 , 아무것도 나오지 않으면 연결 가능
-// git remote remove origin // 만약, 레포가 존재한다면
-git remote add origin <방금 만든 레포의 링크>
-
-// 코드 올리기
-git add .
-git commit -m '커밋메세지'
-git push origin main
-```
-(깃허브 설치하는법)
-윈도우
-1. Git 다운로드 페이지에 접속합니다.
-2.Windows용 Git 설치 파일을 다운로드합니다.
-3.설치 파일을 실행한 후, 기본 설정을 그대로 두고 "다음"을 계속 클릭합니다.
-4.설치가 완료되면 Git Bash 또는 명령 프롬프트에서 Git을 사용할 수 있습니다.
-맥OS
-```
-brew install git
-```
-위 코드를 순서대로 쳐라.
+<img width="1470" alt="스크린샷 2024-08-26 오후 10 40 53" src="https://github.com/user-attachments/assets/6a48aaeb-c4d2-437d-9ccb-424b928e31ce">
+빨간색으로 표시한 곳을 클릭한다.
+<img width="1470" alt="스크린샷 2024-08-26 오후 10 42 19" src="https://github.com/user-attachments/assets/b6550d67-85d3-49c0-a588-2244e208de7e">
+'Choose an owner'를 자신의 프로필로 설정하고 레포지토리 이름을 설정하고 설명은 생략한다. 'Create fork'를 눌러준다.
+그러면 moiso 레포지토리가 복제되어 나만의 레포지토리가 되었다.
 
 마지막으로 App Service에서 설정 > 구성으로 가준다.
 
