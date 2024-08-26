@@ -75,7 +75,7 @@ az webapp deployment user set --user-name <username> --password <password>
 를 넣는다. (<username>,<password>에 자신의 username,password를 넣어라)
 
 아래 링크를 클릭하면 백엔드 코드 압축 파일이 있다. 다운받는다.
-https://drive.google.com/file/d/12s_wusuk-gaoE-YQDDtz4JIECIhB7QKY/view?usp=sharing
+https://drive.google.com/file/d/14xv_sbteeGJNQH65f8lIpEANZdpCeQqc/view?usp=sharing
 ![image](https://github.com/user-attachments/assets/68d83fde-1c2b-473d-b3f0-831f4184dc24)
 레포지토리를 하나 생성한다.
 
