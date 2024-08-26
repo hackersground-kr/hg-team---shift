@@ -210,7 +210,8 @@ jobs:
 위 코드를 파일에 복붙하자. 그러나, 띄어쓰기가 중요하기 때문에 아래 링크의 코드를 복사하는 것도 방법이다.
 https://github.com/heunseoRyu/MOISO_BACKEND/blob/main/.github/workflows/main_moiso-server.yml
 
-🚨 다만, 조건이 있다.
+🚨 
+## 1. 다만, 조건이 있다.
 위에 코드에서 secrets. 뒤에 있는 값들
 ```
 	with:
@@ -236,6 +237,21 @@ AZUREAPPSERVICE_CLIENTID_BC9EAE9B21F84B8BA153374854069D0F,AZUREAPPSERVICE_TENANT
           subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_CC15C906548443F5B44D168292F19DEC }}
 ```
 내가 방금 제시한 코드의 AZUREAPPSERVICE_CLIENTID_BC9EAE9B21F84B8BA153374854069D0F,AZUREAPPSERVICE_TENANTID_2A578BDF6BB546C595AA77734DDA2CFF,AZUREAPPSERVICE_SUBSCRIPTIONID_CC15C906548443F5B44D168292F19DEC 세부분을 순서대로 방금 기록한 __clientidsecretname__,__tenantidsecretname__,__subscriptionidsecretname__로 대신하여 넣는다.
+
+## 2. 다만, 조건이 있다.
+```
+- name: Deploy to Azure Web App
+        id: deploy-to-webapp
+        uses: azure/webapps-deploy@v3
+        with:
+          app-name: 'moiso-server'
+          slot-name: 'Production'
+          package: '*.jar'
+```
+복사한 코드의 app-name 부분을 ⭐️ 나의 App Service 이름 ⭐️으로 설정해주어야 한다.
+<img width="1470" alt="스크린샷 2024-08-27 오전 12 20 36" src="https://github.com/user-attachments/assets/7099e550-ac16-4e73-a779-1641a3e525b5">
+
+
 <img width="1470" alt="스크린샷 2024-08-26 오후 11 52 06" src="https://github.com/user-attachments/assets/6d61683b-2b04-4f34-8843-ef8d3b3b59d9">
 수정 완료했으면 빨간 부분으로 표시한 'Commit changes...'를 누른다.
 
