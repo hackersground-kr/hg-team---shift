@@ -58,7 +58,7 @@ Java 웹 서버 스택 : Java SE (Embedded Web Server)
 
 운영체제 : Linux
 
-지역 : Korea Central
+지역 : Korea South
 
 다음은, ‘검토+만들기’를 클릭 한다. 마지막으로 검토페이지에서 설정들을 확인한 후 ‘만들기’를 선택한다. (와이파이 이슈를 조심하자)
 
