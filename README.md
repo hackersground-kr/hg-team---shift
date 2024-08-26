@@ -74,12 +74,17 @@ az webapp deployment user set --user-name <username> --password <password>
 ```
 를 넣는다. (<username>,<password>에 자신의 username,password를 넣어라)
 
-아래 링크를 클릭하면 백엔드 코드 압축 파일이 있다. 다운받는다.
-https://drive.google.com/file/d/14xv_sbteeGJNQH65f8lIpEANZdpCeQqc/view?usp=sharing
+이제부터 깃허브에 백엔드 코드를 등록하고 git actions을 활용하여 paas 서버를 구축해볼 것이다.
+먼저, 코드를 올릴 깃허브 레포지토리를 파주겠다.
+
 ![image](https://github.com/user-attachments/assets/68d83fde-1c2b-473d-b3f0-831f4184dc24)
 레포지토리를 하나 생성한다.
 
 (Add a README file의 체크는 하지 않는다.)
+
+그렇다면, 올릴 코드가 필요하다.
+아래 링크를 클릭하면 백엔드 코드 압축 파일이 있다. 다운받는다.
+https://drive.google.com/file/d/14xv_sbteeGJNQH65f8lIpEANZdpCeQqc/view?usp=sharing
 
 터미널로 방금 다운받은 나의 백엔드 코드파일에 접근할 것이다.
 
@@ -90,13 +95,13 @@ https://drive.google.com/file/d/14xv_sbteeGJNQH65f8lIpEANZdpCeQqc/view?usp=shari
 ![image](https://github.com/user-attachments/assets/94b69ff9-1613-4f17-b908-bbd7d1b698ed)
 ```
 ls // 현재위치의 폴더.파일 리스트 보기
+cd Downloads // Downloads(다운로드) 폴더위치로 이동한다.
 ```
 ![image](https://github.com/user-attachments/assets/dffdccc5-c5bf-4575-87f3-0a9ad76e6903)
-Downloads 폴더위치로 이동한다.
 
 여기서
 ```
-cd moiso
+cd moiso // moiso 백엔드 코드 폴더로 현재 위치 변경
 ```
 ![image](https://github.com/user-attachments/assets/594a86d0-a54c-4cf1-a5d8-42a7deeed6f2)
 화면처럼 현재 위치가 정해졌다면.
@@ -122,6 +127,15 @@ git push origin main
 brew install git
 ```
 위 코드를 순서대로 쳐라.
+
+마지막으로 App Service에서 설정 > 구성으로 가준다.
+
+‘시작 명령’을
+```
+java -jar /home/site/wwwroot/*.jar --server.port=80
+```
+로 설정해준다. 저장을 누르고, 업데이트까지 기다린다.
+
 이제 코드파일과 Azure App Service까지 준비가 되었다.
 
 배포 > 배포센터 > 설정 으로 간다.
@@ -216,22 +230,14 @@ jobs:
           slot-name: 'Production'
           package: '*.jar'
 ```
-위 파일을 복붙하자. 그러나, 띄어쓰기가 중요하기 때문에 해당 링크의 코드를 복사하는 것도 방법이다.
+위 코드를 파일에 복붙하자. 그러나, 띄어쓰기가 중요하기 때문에 해당 링크의 코드를 복사하는 것도 방법이다.
 https://github.com/heunseoRyu/MOISO_BACKEND/blob/main/.github/workflows/main_moiso-server.yml
 
 ![image](https://github.com/user-attachments/assets/467e2350-b49b-400b-b601-92d6342119af)
 
-이렇게 초록초록하게 뜨면 성공이다.
+이렇게 둘다 체크가 뜨면 성공이다.
 
 ![image](https://github.com/user-attachments/assets/c4c630bb-d884-4bef-a49e-0d4fc53c4595)
-
-다음은 설정 > 구성으로 가준다.
-
-‘시작 명령’을
-```
-java -jar /home/site/wwwroot/*.jar --server.port=80
-```
-로 설정해준다. 
 
 배포되었는지 확인
 ![image](https://github.com/user-attachments/assets/348d8769-c7b2-4888-ba67-8a1da80fe038)
