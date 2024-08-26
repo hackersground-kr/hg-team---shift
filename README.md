@@ -240,6 +240,13 @@ java -jar /home/site/wwwroot/*.jar --server.port=80
 ![image](https://github.com/user-attachments/assets/3bf7b555-a078-4ac0-a5bd-c9e33bf53dfe)
 웹브라우저에서 검색해도 응답을 볼 수 있다!
 
+웹도 함께 배포됩니다.
+아래 경로로 검색해보시면 들어가집니다.
+https://moiso-server-hzeae2hhbchmexcc.eastus-01.azurewebsites.net/web/upload-article
+https://moiso-server-hzeae2hhbchmexcc.eastus-01.azurewebsites.net/web/sign-in
+
+만약에 내가 배포한 도메인으로 접속해보고 싶으면
+moiso-server-hzeae2hhbchmexcc.eastus-01.azurewebsites.net 부분을 자신의 도메인으로 바꿔주세요!
 
 ## 시작하기
 
