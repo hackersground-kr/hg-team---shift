@@ -66,7 +66,7 @@ Java 웹 서버 스택 : Java SE (Embedded Web Server)
 
 **먼저 배포를 위한 자격 증명을 설정**한다.
 ![image](https://github.com/user-attachments/assets/9115206b-987d-46aa-bc48-c0f099f8b7a2)
-위에 빨간박스로 네모친 곳을 눌러서 bash(맥이라서..) 로 들어간다. 
+위에 빨간박스로 네모친 곳을 눌러서 bash(맥이라서 bash고, windows유저는 powerShell로하면된다.) 로 들어간다. 
 <img src="https://github.com/user-attachments/assets/fe8e8062-ee3b-463d-a79c-fcc336b23db8" alt="description" width="300"/>
 만약 위 화면이 뜬다면 (Hackers Ground)를 선택하고, ‘스토리지 계정이 필요하지 않음’을 선택. ‘기존 프라이빗 가상 네트워크 사용’ 이거는 체크할 필요없다.
 ```
@@ -85,7 +85,7 @@ https://drive.google.com/file/d/12s_wusuk-gaoE-YQDDtz4JIECIhB7QKY/view?usp=shari
 
 일단, 다운로드 받은 파일의 압축을 푼다.
 
-터미널(지금부터 맥북 기준으로 설명하겠다)을 연다.
+터미널(윈도우는 cmd)을 연다.
 
 ![image](https://github.com/user-attachments/assets/94b69ff9-1613-4f17-b908-bbd7d1b698ed)
 ```
@@ -110,6 +110,16 @@ git remote add origin <방금 만든 레포의 링크>
 git add .
 git commit -m '커밋메세지'
 git push origin main
+```
+(깃허브 설치하는법)
+윈도우
+1. Git 다운로드 페이지에 접속합니다.
+2.Windows용 Git 설치 파일을 다운로드합니다.
+3.설치 파일을 실행한 후, 기본 설정을 그대로 두고 "다음"을 계속 클릭합니다.
+4.설치가 완료되면 Git Bash 또는 명령 프롬프트에서 Git을 사용할 수 있습니다.
+맥OS
+```
+brew install git
 ```
 위 코드를 순서대로 쳐라.
 이제 코드파일과 Azure App Service까지 준비가 되었다.
