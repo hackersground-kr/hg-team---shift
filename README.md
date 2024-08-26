@@ -33,7 +33,7 @@ Azure(Microsoft의 클라우드 서비스)의 대표 서비스인 PaaS의 정석
 먼저, https://portal.azure.com/ 에서 App Service 리소스를 생성할 것이다.
 검색창에 App Service를 검색한다.
 
-App Service에서 ‘만들기’ > ‘웹 앱 만들기’를 클릭한다.
+App Service에서 ‘만들기’ > ‘웹 앱’를 클릭한다.
 (home에 원하는 리소스 서비스가 없을 경우에는 리소스 만들기를 눌러 원하는 리소스를 검색하여 찾을 수 있다.)
 
 ![image](https://github.com/user-attachments/assets/ab28ab4f-4350-4a0d-898f-115ffb191557)
