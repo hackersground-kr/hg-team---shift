@@ -29,9 +29,9 @@
 
 ### 사전 준비 사항
 Azure(Microsoft의 클라우드 서비스)의 대표 서비스인 PaaS의 정석, AppService(제품 이름입니다)로 PaaS서버를 구축하려고 했다.
-
-![image](https://github.com/user-attachments/assets/d3698b24-ec1c-4f14-b438-885f76b86e45)
+<img width="1470" alt="스크린샷 2024-08-26 오후 7 50 22" src="https://github.com/user-attachments/assets/956953c0-12fa-4747-9881-6e5d13002cac">
 먼저, https://portal.azure.com/ 에서 App Service 리소스를 생성할 것이다.
+검색창에 App Service를 검색한다.
 
 App Service에서 ‘만들기’ > ‘웹 앱 만들기’를 클릭한다.
 (home에 원하는 리소스 서비스가 없을 경우에는 리소스 만들기를 눌러 원하는 리소스를 검색하여 찾을 수 있다.)
