@@ -102,7 +102,7 @@ java -jar /home/site/wwwroot/*.jar --server.port=80
 ![image](https://github.com/user-attachments/assets/57f6350a-ccbd-48a9-8f50-c5151b07d006)
 소스 : Github
 
-다음으로 로그인에서 들어가 로그인을 통해 본인의 username을 설정합니다.
+'다음으로 로그인'에서 파란글씨를 눌러 본인의 깃허브 username(깃허브아이디)을 설정합니다.
 
 개인레포지토리 이므로 조직에서 hackersground-kr 대신 username을 선택해준다.
 방금 만든 리포지토리를 선택한다.
