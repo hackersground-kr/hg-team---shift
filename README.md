@@ -70,9 +70,9 @@ Java 웹 서버 스택 : Java SE (Embedded Web Server)
 <img src="https://github.com/user-attachments/assets/fe8e8062-ee3b-463d-a79c-fcc336b23db8" alt="description" width="300"/>
 만약 위 화면이 뜬다면 (Hackers Ground)를 선택하고, ‘스토리지 계정이 필요하지 않음’을 선택. ‘기존 프라이빗 가상 네트워크 사용’ 이거는 체크할 필요없다.
 ```
-az webapp deployment user set --user-name <username> --password <password>
+az webapp deployment user set --user-name (username) --password (password)
 ```
-를 넣는다. ("<username>","<password>"에 자신의 username,password를 넣어라)
+를 넣는다. ("(username)","(password)"에 자신의 에저 username,password를 넣어라)
 
 이제부터 깃허브에 백엔드 코드를 등록하고 git actions을 활용하여 paas 서버를 구축해볼 것이다.
 먼저, 코드를 올릴 깃허브 레포지토리를 파주겠다.
