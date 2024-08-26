@@ -65,6 +65,7 @@ Java 웹 서버 스택 : Java SE (Embedded Web Server)
 ## Github와 Azure로 배포하기
 
 **먼저 배포를 위한 자격 증명을 설정**한다.
+'리소스로 이동'을 클릭한다.
 ![361386257-9115206b-987d-46aa-bc48-c0f099f8b7a2](https://github.com/user-attachments/assets/a9711782-b1f7-4320-bfb7-aa27ad92d170)
 위에 빨간박스로 네모친 곳을 눌러서 bash(맥,윈도우 둘다 bash로하면된다.) 로 들어간다. 
 
@@ -107,6 +108,7 @@ java -jar /home/site/wwwroot/*.jar --server.port=80
 
 이제 코드파일과 Azure App Service까지 준비가 되었다.
 
+<img width="1470" alt="스크린샷 2024-08-26 오후 11 44 22" src="https://github.com/user-attachments/assets/a756420b-af81-42a1-9120-663e9b4bef2e">
 배포 > 배포센터 > 설정 으로 간다.
 
 ![image](https://github.com/user-attachments/assets/57f6350a-ccbd-48a9-8f50-c5151b07d006)
@@ -205,7 +207,8 @@ jobs:
           slot-name: 'Production'
           package: '*.jar'
 ```
-위 코드를 파일에 복붙하자. 그러나, 띄어쓰기가 중요하기 때문에 해당 링크의 코드를 복사하는 것도 방법이다.
+위 코드를 파일에 복붙하자. 그러나, 띄어쓰기가 중요하기 때문에 아래 링크의 코드를 복사하는 것도 방법이다.
+https://github.com/heunseoRyu/MOISO_BACKEND/blob/main/.github/workflows/main_moiso-server.yml
 
 🚨 다만, 조건이 있다.
 위에 코드에서 secrets. 뒤에 있는 값들
@@ -233,12 +236,17 @@ AZUREAPPSERVICE_CLIENTID_BC9EAE9B21F84B8BA153374854069D0F,AZUREAPPSERVICE_TENANT
           subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_CC15C906548443F5B44D168292F19DEC }}
 ```
 내가 방금 제시한 코드의 AZUREAPPSERVICE_CLIENTID_BC9EAE9B21F84B8BA153374854069D0F,AZUREAPPSERVICE_TENANTID_2A578BDF6BB546C595AA77734DDA2CFF,AZUREAPPSERVICE_SUBSCRIPTIONID_CC15C906548443F5B44D168292F19DEC 세부분을 순서대로 방금 기록한 __clientidsecretname__,__tenantidsecretname__,__subscriptionidsecretname__로 대신하여 넣는다.
+<img width="1470" alt="스크린샷 2024-08-26 오후 11 52 06" src="https://github.com/user-attachments/assets/6d61683b-2b04-4f34-8843-ef8d3b3b59d9">
+수정 완료했으면 빨간 부분으로 표시한 'Commit changes...'를 누른다.
 
-<img width="1470" alt="스크린샷 2024-08-26 오후 11 20 51" src="https://github.com/user-attachments/assets/4b0fbfc0-5b83-4e78-b6f8-43a216c3d91f">
+<img width="1470" alt="스크린샷 2024-08-26 오후 11 59 23" src="https://github.com/user-attachments/assets/28ff27fb-8ba4-49c0-b370-43b38297499f">
+누르면 위와 같은 화면이 나온다. 위에 빨간색으로 표시한 Actions를 클릭한다.
+
+<img width="1470" alt="스크린샷 2024-08-27 오전 12 01 00" src="https://github.com/user-attachments/assets/37851403-fb60-4bab-8082-df33193211ed">
+가장 상단에 있는 기록을 누른다.
 
 ![image](https://github.com/user-attachments/assets/467e2350-b49b-400b-b601-92d6342119af)
-
-이렇게 체크가 뜨면 성공이다.
+상당시간 기다려야 한다. 이렇게 체크가 뜨면 성공이다. 
 
 
 배포되었는지 확인
