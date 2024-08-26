@@ -65,14 +65,19 @@ Java 웹 서버 스택 : Java SE (Embedded Web Server)
 ## Github와 Azure로 배포하기
 
 **먼저 배포를 위한 자격 증명을 설정**한다.
-![image](https://github.com/user-attachments/assets/9115206b-987d-46aa-bc48-c0f099f8b7a2)
+![361386257-9115206b-987d-46aa-bc48-c0f099f8b7a2](https://github.com/user-attachments/assets/a9711782-b1f7-4320-bfb7-aa27ad92d170)
 위에 빨간박스로 네모친 곳을 눌러서 bash(맥,윈도우 둘다 bash로하면된다.) 로 들어간다. 
+
 <img src="https://github.com/user-attachments/assets/fe8e8062-ee3b-463d-a79c-fcc336b23db8" alt="description" width="300"/>
+
 만약 위 화면이 뜬다면 (Hackers Ground)를 선택하고, ‘스토리지 계정이 필요하지 않음’을 선택. ‘기존 프라이빗 가상 네트워크 사용’ 이거는 체크할 필요없다.
 ```
 az webapp deployment user set --user-name (username) --password (password)
 ```
 를 넣는다. ((username),(password)에 자신의 에저 username[사용자 이메일],password를 넣어라)
+
+![image](https://github.com/user-attachments/assets/9115206b-987d-46aa-bc48-c0f099f8b7a2)
+위와 같이 뜨면 성공이다!
 
 이제부터 깃허브에 백엔드 코드를 등록하고 git actions을 활용하여 paas 서버를 구축해볼 것이다.
 먼저, 코드를 올릴 깃허브 레포지토리를 파주겠다.
@@ -87,7 +92,12 @@ https://github.com/heunseoRyu/Moiso_test
 'Choose an owner'를 자신의 프로필로 설정하고 레포지토리 이름을 설정하고 설명은 생략한다. 'Create fork'를 눌러준다.
 그러면 moiso 레포지토리가 복제되어 나만의 레포지토리가 되었다.
 
-마지막으로 App Service에서 설정 > 구성으로 가준다.
+마지막으로 에저로 돌아가 맨처음에 갔던 App Service에서 자신의 AppService를 클릭,
+<img width="1470" alt="스크린샷 2024-08-26 오후 11 02 24" src="https://github.com/user-attachments/assets/e0bd0a9a-5b80-42e7-bda5-642ebe2069d3">
+
+설정 > 구성으로 가준다.
+<img width="1470" alt="스크린샷 2024-08-26 오후 11 03 08" src="https://github.com/user-attachments/assets/781c86dc-e211-4749-b0d9-4da1f71f866d">
+![image](https://github.com/user-attachments/assets/c4c630bb-d884-4bef-a49e-0d4fc53c4595)
 
 ‘시작 명령’을
 ```
@@ -120,9 +130,15 @@ java -jar /home/site/wwwroot/*.jar --server.port=80
 
 가 뜨면 깃허브로 가본다. 
 
-grade.yml 파일이 .github/workflows/main_(app service이름).yml 이렇게 생성이 되었을 것이다.
+yml 파일이 .github/workflows/main_(app service이름).yml 의 경로로 생성이 되었을 것이다.
+사진으로 보면 아래와 같다. 
+<img width="1470" alt="스크린샷 2024-08-26 오후 11 09 14" src="https://github.com/user-attachments/assets/4a80ff84-ec7c-4fa8-acec-7b100b754e4e">
+빨간박스로 표시한 폴더를 누르면 main_(app service이름).yml 파일이 있을 것이다.
+<img width="1470" alt="스크린샷 2024-08-26 오후 11 11 20" src="https://github.com/user-attachments/assets/cc726f5a-0339-4b85-9d93-100902656d38">
+위에 빨간박스로 표시한 부분을 클릭해서 파일을 수정하는 페이지로 넘어간다.
 
 그렇다면, 이제부터 이 파일을 조금 변경할 것이다.
+
 
 ```
 name: Build and deploy JAR app to Azure Web App - moiso-server
@@ -190,13 +206,40 @@ jobs:
           package: '*.jar'
 ```
 위 코드를 파일에 복붙하자. 그러나, 띄어쓰기가 중요하기 때문에 해당 링크의 코드를 복사하는 것도 방법이다.
-https://github.com/heunseoRyu/MOISO_BACKEND/blob/main/.github/workflows/main_moiso-server.yml
+
+🚨 다만, 조건이 있다.
+위에 코드에서 secrets. 뒤에 있는 값들
+```
+	with:
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_BC9EAE9B21F84B8BA153374854069D0F }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_2A578BDF6BB546C595AA77734DDA2CFF }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_CC15C906548443F5B44D168292F19DEC }}
+```
+AZUREAPPSERVICE_CLIENTID_BC9EAE9B21F84B8BA153374854069D0F,AZUREAPPSERVICE_TENANTID_2A578BDF6BB546C595AA77734DDA2CFF,AZUREAPPSERVICE_SUBSCRIPTIONID_CC15C906548443F5B44D168292F19DEC 세개는 복붙을 할때 내 기존 코드에서 가져와야 한다.
+(그게 어디있는데요?)
+```
+- name: Login to Azure
+        uses: azure/login@v2
+        with:
+          client-id: ${{ secrets.__clientidsecretname__ }}
+          tenant-id: ${{ secrets.__tenantidsecretname__ }}
+          subscription-id: ${{ secrets.__subscriptionidsecretname__ }}
+```
+  이 부분을 찾고 __clientidsecretname__,__tenantidsecretname__,__subscriptionidsecretname__는 메모장에 기록한 후
+```
+	with:
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_BC9EAE9B21F84B8BA153374854069D0F }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_2A578BDF6BB546C595AA77734DDA2CFF }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_CC15C906548443F5B44D168292F19DEC }}
+```
+내가 방금 제시한 코드의 AZUREAPPSERVICE_CLIENTID_BC9EAE9B21F84B8BA153374854069D0F,AZUREAPPSERVICE_TENANTID_2A578BDF6BB546C595AA77734DDA2CFF,AZUREAPPSERVICE_SUBSCRIPTIONID_CC15C906548443F5B44D168292F19DEC 세부분을 순서대로 방금 기록한 __clientidsecretname__,__tenantidsecretname__,__subscriptionidsecretname__로 대신하여 넣는다.
+
+<img width="1470" alt="스크린샷 2024-08-26 오후 11 20 51" src="https://github.com/user-attachments/assets/4b0fbfc0-5b83-4e78-b6f8-43a216c3d91f">
 
 ![image](https://github.com/user-attachments/assets/467e2350-b49b-400b-b601-92d6342119af)
 
-이렇게 둘다 체크가 뜨면 성공이다.
+이렇게 체크가 뜨면 성공이다.
 
-![image](https://github.com/user-attachments/assets/c4c630bb-d884-4bef-a49e-0d4fc53c4595)
 
 배포되었는지 확인
 ![image](https://github.com/user-attachments/assets/348d8769-c7b2-4888-ba67-8a1da80fe038)
