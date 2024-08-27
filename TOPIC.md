@@ -21,7 +21,7 @@ https://github.com/hackersground-kr/hg-team---shift/blob/main/images/Frame%202.p
 https://github.com/hackersground-kr/hg-team---shift/blob/main/images/Frame%201.png (api 오가는 구조)
 
 ## 제품 소개 슬라이드
-
+https://github.com/hackersground-kr/hg-team---shift/blob/main/decks/shift%20(3).pdf
 
 ## 제품 소개 동영상
 https://youtu.be/uMPUFUpn_kk
