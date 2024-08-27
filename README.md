@@ -274,12 +274,8 @@ AZUREAPPSERVICE_CLIENTID_BC9EAE9B21F84B8BA153374854069D0F,AZUREAPPSERVICE_TENANT
 
 웹도 함께 배포됩니다.
 아래 경로로 검색해보시면 들어가집니다.
-https://moiso-server-hzeae2hhbchmexcc.eastus-01.azurewebsites.net/web/upload-article
-https://moiso-server-hzeae2hhbchmexcc.eastus-01.azurewebsites.net/web/sign-in
+https://moiso-server-hzeae2hhbchmexcc.eastus-01.azurewebsites.net
 
 만약에 내가 배포한 도메인으로 접속해보고 싶으면
 moiso-server-hzeae2hhbchmexcc.eastus-01.azurewebsites.net 부분을 자신의 도메인으로 바꿔주세요!
 
-## 시작하기
-
-> **여러분의 제품/서비스를 Microsoft 애저 클라우드에 배포하기 위한 절차를 구체적으로 나열해 주세요.**
